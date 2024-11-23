@@ -23,44 +23,50 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApplicationConfig {
 
-    @Bean
-    public AvaliacaoRepository avaliacaoRepository(final AvaliacaoJPARepository avaliacaoJPARepository){
-        return new AvaliacaoRepositoryImpl(avaliacaoJPARepository);
-    }
+  @Bean
+  public AvaliacaoRepository avaliacaoRepository(
+      final AvaliacaoJPARepository avaliacaoJPARepository) {
+    return new AvaliacaoRepositoryImpl(avaliacaoJPARepository);
+  }
 
-    @Bean
-    public AvaliacaoCreateUseCase avaliacaoCreateUseCase(final AvaliacaoRepository avaliacaoRepository) {
-        return new DefaultAvaliacaoCreateUseCase(avaliacaoRepository);
-    }
+  @Bean
+  public AvaliacaoCreateUseCase avaliacaoCreateUseCase(
+      final AvaliacaoRepository avaliacaoRepository) {
+    return new DefaultAvaliacaoCreateUseCase(avaliacaoRepository);
+  }
 
-    @Bean
-    public AvaliacaoListUseCase avaliacaoListUseCase(final AvaliacaoRepository avaliacaoRepository) {
-        return new DefaultAvaliacaoListUseCase(avaliacaoRepository);
-    }
+  @Bean
+  public AvaliacaoListUseCase avaliacaoListUseCase(final AvaliacaoRepository avaliacaoRepository) {
+    return new DefaultAvaliacaoListUseCase(avaliacaoRepository);
+  }
 
-    @Bean
-    public AvaliacaoGetByIdUseCase avaliacaoGetByIdUseCase(final AvaliacaoRepository avaliacaoRepository) {
-        return new DefaultAvaliacaoGetByIdUseCase(avaliacaoRepository);
-    }
+  @Bean
+  public AvaliacaoGetByIdUseCase avaliacaoGetByIdUseCase(
+      final AvaliacaoRepository avaliacaoRepository) {
+    return new DefaultAvaliacaoGetByIdUseCase(avaliacaoRepository);
+  }
 
-    @Bean
-    public AvaliacaoListByIdRestauranteUseCase avaliacaoListByIdRestauranteUseCase(final AvaliacaoRepository avaliacaoRepository) {
-        return new DefaultAvaliacaoListByIdRestauranteUseCase(avaliacaoRepository);
-    }
+  @Bean
+  public AvaliacaoListByIdRestauranteUseCase avaliacaoListByIdRestauranteUseCase(
+      final AvaliacaoRepository avaliacaoRepository) {
+    return new DefaultAvaliacaoListByIdRestauranteUseCase(avaliacaoRepository);
+  }
 
-    @Bean
-    public AvaliacaoUpdateUseCase avaliacaoUpdateUseCase(final AvaliacaoRepository avaliacaoRepository) {
-        return new DefaultAvaliacaoUpdateUseCase(avaliacaoRepository);
-    }
+  @Bean
+  public AvaliacaoUpdateUseCase avaliacaoUpdateUseCase(
+      final AvaliacaoRepository avaliacaoRepository) {
+    return new DefaultAvaliacaoUpdateUseCase(avaliacaoRepository);
+  }
 
-    @Bean
-    public AvaliacaoDeleteUseCase avaliacaoDeleteUseCase(final AvaliacaoRepository avaliacaoRepository) {
-        return new DefaultAvaliacaoDeleteUseCase(avaliacaoRepository);
-    }
+  @Bean
+  public AvaliacaoDeleteUseCase avaliacaoDeleteUseCase(
+      final AvaliacaoRepository avaliacaoRepository) {
+    return new DefaultAvaliacaoDeleteUseCase(avaliacaoRepository);
+  }
 
-    @Bean
-    public NotaRestauranteGetByIdUseCase notaRestauranteGetByIdUseCase(final AvaliacaoRepository avaliacaoRepository) {
-        return new DefaultNotaRestauranteGetByUseCase(avaliacaoRepository);
-    }
-
+  @Bean
+  public NotaRestauranteGetByIdUseCase notaRestauranteGetByIdUseCase(
+      final AvaliacaoRepository avaliacaoRepository) {
+    return new DefaultNotaRestauranteGetByUseCase(avaliacaoRepository);
+  }
 }
