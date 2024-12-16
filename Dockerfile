@@ -1,11 +1,13 @@
-FROM openjdk:17-alpine
+FROM maven:3.8.4-openjdk-17-slim AS build
 
 WORKDIR /app
 
-COPY target/*.jar app.jar
+COPY . /app
 
-ARG PROFILE
+RUN mvn package
 
-ENV SPRING_PROFILES_ACTIVE=${PROFILE:-default}
+FROM openjdk:17-jdk-slim
 
-CMD ["java", "-jar", "-Dspring.profiles.active=${SPRING_PROFILES_ACTIVE}", "app.jar"]
+COPY --from=build /app/target/*.jar /app/app.jar
+
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./unrandom", "-jar", "/app/app.jar"]
